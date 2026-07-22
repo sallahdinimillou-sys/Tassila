@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, ShoppingBag, Send, CheckCircle, ArrowRight, Phone, MessageSquare, ShieldCheck, Heart, Trash2 } from 'lucide-react';
 import { Product, Order, ViewType, SiteSettings, CartItem } from '../types';
+import { ASSETS } from '../data';
 import { getTranslation, translateProduct, Language } from '../translations';
 
 interface ContactViewProps {
@@ -380,6 +381,16 @@ export default function ContactView({
                                   alt={name}
                                   className="w-full h-full object-cover"
                                   referrerPolicy="no-referrer"
+                                  onError={(e) => {
+                                    const target = e.currentTarget;
+                                    if (!target.dataset.fallback) {
+                                      target.dataset.fallback = 'true';
+                                      if (p.category === 'argan') target.src = ASSETS.arganBottle;
+                                      else if (p.category === 'honey') target.src = ASSETS.honeyJar;
+                                      else if (p.category === 'bundles') target.src = ASSETS.wovenBaskets;
+                                      else target.src = ASSETS.amlouJar;
+                                    }
+                                  }}
                                 />
                               </div>
 

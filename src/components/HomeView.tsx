@@ -300,6 +300,13 @@ export default function HomeView({
             loading="eager"
             fetchPriority="high"
             decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (!target.dataset.fallback) {
+                target.dataset.fallback = 'true';
+                target.src = '/images/honeycomb_ambiance_1783872811408.jpg';
+              }
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-brand-black/40 z-10" />
         </div>
@@ -642,6 +649,16 @@ export default function HomeView({
                   alt="Tassila Bio Quality"
                   className="w-full h-[400px] object-cover rounded-sm"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = '/images/moroccan_natural_production.jpg';
+                    } else if (target.dataset.fallback === 'true') {
+                      target.dataset.fallback = '2';
+                      target.src = ASSETS.olivesAmbiance;
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-brand-black/20" />
               </div>
