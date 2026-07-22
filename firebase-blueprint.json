@@ -1,0 +1,36 @@
+{
+  "collections": {
+    "products": {
+      "schema": {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "image": "string",
+        "category": "string",
+        "variants": "array"
+      }
+    },
+    "settings": {
+      "schema": {
+        "whatsappNumber": "string",
+        "instagramLink": "string",
+        "facebookLink": "string",
+        "tiktokLink": "string",
+        "shippingCost": "number"
+      }
+    },
+    "orders": {
+      "schema": {
+        "id": "string",
+        "fullName": "string",
+        "phone": "string",
+        "productSku": "string",
+        "productName": "string",
+        "quantity": "number",
+        "message": "string",
+        "date": "string",
+        "status": "string"
+      }
+    }
+  }
+}

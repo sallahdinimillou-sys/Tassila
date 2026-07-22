@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@300;400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #0E100C;
+  --color-brand-black-soft: #191C14;
+  --color-brand-olive: #5B6B34;
+  --color-brand-olive-dark: #3F4A24;
+  --color-brand-gold: #C9A445;
+  --color-brand-cream: #F4EFE1;
+  --color-brand-stone: #A9A690;
+
+  --font-display: "Amiri", serif;
+  --font-sans: "Tajawal", sans-serif;
+}
+
+/* Custom global styles for the brand */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px; /* Offset for floating header on mobile */
+  -webkit-overflow-scrolling: touch; /* Momentum scrolling on iOS */
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-cream);
+  direction: rtl; /* Force RTL globally */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 155px; /* Offset for desktop main nav + sub nav combined sticky height */
+  }
+}
+
+/* Hardware accelerated layers for smooth-scrolling and fluid GPU renders */
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Prevent layout paint overhead on long pages */
+.scroll-optimized-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 100px 800px;
+}
+
+/* Force maximum image sharpness and render quality across all platforms with native hardware scaling */
+img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Mild acceleration without rasterization blur */
+}
+
+/* Custom scrollbar for brand aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-olive);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
+}
+
+/* Traditional thin gold divider lines */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-brand-gold), transparent);
+}
+
+.gold-divider-sm {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-brand-gold), transparent);
+  width: 150px;
+  margin: 0 auto;
+}
+
+/* Custom glowing button styles */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-brand-gold) 0%, #E0B85C 50%, #F5D061 100%);
+  background-size: 200% auto;
+  color: var(--color-brand-black);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  border-radius: 9999px; /* Pill-shaped */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px 0 rgba(201, 164, 69, 0.35), 0 0 2px rgba(201, 164, 69, 0.4);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-position 0.4s ease;
+  animation: gold-pulse-glow 3s infinite ease-in-out;
+  cursor: pointer;
+}
+
+/* Elegant light sweep overlay */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after,
+.btn-primary:focus::after {
+  animation: shine-sweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes gold-pulse-glow {
+  0% {
+    box-shadow: 0 0 10px 1px rgba(201, 164, 69, 0.35), 0 4px 15px 0 rgba(201, 164, 69, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px 6px rgba(201, 164, 69, 0.75), 0 4px 15px 0 rgba(201, 164, 69, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 10px 1px rgba(201, 164, 69, 0.35), 0 4px 15px 0 rgba(201, 164, 69, 0.25);
+  }
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  transform: scale(1.04) translateY(-1px);
+  background-position: right center;
+  box-shadow: 0 0 35px 8px rgba(224, 184, 92, 0.85), 0 8px 24px 4px rgba(201, 164, 69, 0.45);
+  outline: none;
+}
+
+.btn-secondary {
+  position: relative;
+  background: rgba(25, 28, 20, 0.8);
+  color: var(--color-brand-cream);
+  border: 1.5px solid rgba(201, 164, 69, 0.6);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  border-radius: 9999px; /* Pill-shaped */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(201, 164, 69, 0.1);
+  transition: border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #FFF2CC;
+  color: #FFF2CC;
+  box-shadow: 0 0 20px rgba(201, 164, 69, 0.5), inset 0 0 12px rgba(201, 164, 69, 0.25);
+  transform: scale(1.025) translateY(-1px);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-secondary {
+    transition: none !important;
+  }
+  .btn-primary:hover, .btn-primary:focus,
+  .btn-secondary:hover, .btn-secondary:focus {
+    transform: none !important;
+  }
+}
+

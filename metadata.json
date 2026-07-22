@@ -1,0 +1,6 @@
+{
+  "name": "Tassila Bio",
+  "description": "Moroccan luxury natural-products brand selling premium natural honey, amlou, and argan oil with a classical Arabic aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

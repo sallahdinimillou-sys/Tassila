@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Title & Brand Information -->
+    <title>تاسيلا بيو | Tassila Bio - عسل حر، أملو أصيل وزيت أركان مغربي فاخر</title>
+    <meta name="description" content="عسل حر طبيعي ممتاز، أملو مغربي أصيل باللوز وأركان، وزيت أركان نقي معصور على البارد - تاسيلا بيو (Tassila Bio). منتجات طبيعية فاخرة 100٪ من خيرات بلادنا." />
+    
+    <!-- Favicon Configuration (Store Logo) -->
+    <link rel="icon" type="image/jpeg" href="/images/logo_tassila_1783872761746.jpg" />
+    <link rel="shortcut icon" type="image/jpeg" href="/images/logo_tassila_1783872761746.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo_tassila_1783872761746.jpg" />
+    <link rel="image_src" type="image/jpeg" href="/images/logo_tassila_1783872761746.jpg" />
+
+    <!-- Open Graph / WhatsApp Preview Meta Tags -->
+    <meta property="og:title" content="تاسيلا بيو | Tassila Bio - منتجات طبيعية فاخرة" />
+    <meta property="og:description" content="اكتشف أجود أنواع عسل النحل الحر، أملو الأصيل وزيت الأركان النقي البكر من تحضيري المنزلي في تاسيلا بيو. توصيل سريع والدفع عند الاستلام." />
+    <meta property="og:image" content="/images/logo_tassila_1783872761746.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tassilabio.com" />
+    
+    <!-- Twitter Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="تاسيلا بيو | Tassila Bio - منتجات طبيعية فاخرة" />
+    <meta name="twitter:description" content="عسل نحل حر، أملو أصيل وزيت أركان مغربي فاخر ومحضر بالحب والبركة." />
+    <meta name="twitter:image" content="/images/logo_tassila_1783872761746.jpg" />
+
+    <!-- Dynamic absolute URL resolution script for crawlers & sharing services -->
+    <script>
+      try {
+        const origin = window.location.origin;
+        const relativeImage = "/images/logo_tassila_1783872761746.jpg";
+        const absoluteImage = origin + relativeImage;
+        
+        const ogImg = document.querySelector('meta[property="og:image"]');
+        if (ogImg) ogImg.setAttribute('content', absoluteImage);
+        
+        const twitterImg = document.querySelector('meta[name="twitter:image"]');
+        if (twitterImg) twitterImg.setAttribute('content', absoluteImage);
+
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+      } catch (e) {
+        console.error("Meta correction error:", e);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
